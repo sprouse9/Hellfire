@@ -13,6 +13,7 @@
 		8CD0A4B32051CE8E00F2ADE6 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 8CD0A4B22051CE8E00F2ADE6 /* nice_music.ogg */; };
 		8CD0A4B52051CE8E00F2ADE6 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CD0A4B42051CE8E00F2ADE6 /* sansation.ttf */; };
 		8CD0A4B72051CE8E00F2ADE6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CD0A4B62051CE8E00F2ADE6 /* icon.png */; };
+		8CD0A4BE2051CFB000F2ADE6 /* Hellfire-Player-SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CD0A4BD2051CFB000F2ADE6 /* Hellfire-Player-SpriteSheet.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		8CD0A4B22051CE8E00F2ADE6 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		8CD0A4B42051CE8E00F2ADE6 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		8CD0A4B62051CE8E00F2ADE6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		8CD0A4BD2051CFB000F2ADE6 /* Hellfire-Player-SpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hellfire-Player-SpriteSheet.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		8CD0A4AF2051CE8E00F2ADE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8CD0A4BD2051CFB000F2ADE6 /* Hellfire-Player-SpriteSheet.png */,
 				8CD0A4B02051CE8E00F2ADE6 /* cute_image.jpg */,
 				8CD0A4B22051CE8E00F2ADE6 /* nice_music.ogg */,
 				8CD0A4B42051CE8E00F2ADE6 /* sansation.ttf */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CD0A4B72051CE8E00F2ADE6 /* icon.png in Resources */,
+				8CD0A4BE2051CFB000F2ADE6 /* Hellfire-Player-SpriteSheet.png in Resources */,
 				8CD0A4B52051CE8E00F2ADE6 /* sansation.ttf in Resources */,
 				8CD0A4B32051CE8E00F2ADE6 /* nice_music.ogg in Resources */,
 				8CD0A4B12051CE8E00F2ADE6 /* cute_image.jpg in Resources */,

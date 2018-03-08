@@ -23,38 +23,38 @@
 int main(int, char const**)
 {
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+    sf::RenderWindow window(sf::VideoMode(1600, 200), "SFML window");
 
     // Set the Icon
     sf::Image icon;
     if (!icon.loadFromFile(resourcePath() + "icon.png")) {
         return EXIT_FAILURE;
     }
-    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+//    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 
     // Load a sprite to display
     sf::Texture texture;
-    if (!texture.loadFromFile(resourcePath() + "cute_image.jpg")) {
+    if (!texture.loadFromFile(resourcePath() + "Hellfire-Player-SpriteSheet.png")) {
         return EXIT_FAILURE;
     }
     sf::Sprite sprite(texture);
 
     // Create a graphical text to display
-    sf::Font font;
-    if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
-        return EXIT_FAILURE;
-    }
-    sf::Text text("Hello SFML", font, 50);
-    text.setFillColor(sf::Color::Black);
+//    sf::Font font;
+//    if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
+//        return EXIT_FAILURE;
+//    }
+    //sf::Text text("Hello SFML", font, 50);
+    //text.setFillColor(sf::Color::Black);
 
     // Load a music to play
-    sf::Music music;
-    if (!music.openFromFile(resourcePath() + "nice_music.ogg")) {
-        return EXIT_FAILURE;
-    }
+//    sf::Music music;
+//    if (!music.openFromFile(resourcePath() + "nice_music.ogg")) {
+//        return EXIT_FAILURE;
+//    }
 
     // Play the music
-    music.play();
+    //music.play();
 
     // Start the game loop
     while (window.isOpen())
@@ -81,7 +81,7 @@ int main(int, char const**)
         window.draw(sprite);
 
         // Draw the string
-        window.draw(text);
+         //window.draw(text);
 
         // Update the window
         window.display();
