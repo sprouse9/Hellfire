@@ -20,70 +20,47 @@
 // Here is a small helper for you! Have a look.
 #include "ResourcePath.hpp"
 
+using namespace sf;
+
 int main(int, char const**)
 {
-    // Create the main window
-    sf::RenderWindow window(sf::VideoMode(1600, 200), "SFML window");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");   // Create the main window
 
-    // Set the Icon
-    sf::Image icon;
-    if (!icon.loadFromFile(resourcePath() + "icon.png")) {
-        return EXIT_FAILURE;
-    }
-//    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
-
-    // Load a sprite to display
-    sf::Texture texture;
+    sf::Texture texture;    // Load a sprite to display
     if (!texture.loadFromFile(resourcePath() + "Hellfire-Player-SpriteSheet.png")) {
         return EXIT_FAILURE;
     }
-    sf::Sprite sprite(texture);
+    //sf::Sprite sprite(texture);
+    short int playerFrame = 0;
+    sf::Sprite sprite(texture, sf::IntRect(playerFrame*161,0, 161,110));
 
-    // Create a graphical text to display
-//    sf::Font font;
-//    if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
-//        return EXIT_FAILURE;
-//    }
-    //sf::Text text("Hello SFML", font, 50);
-    //text.setFillColor(sf::Color::Black);
+    // here is our clock
+    Clock clock;
 
-    // Load a music to play
-//    sf::Music music;
-//    if (!music.openFromFile(resourcePath() + "nice_music.ogg")) {
-//        return EXIT_FAILURE;
-//    }
-
-    // Play the music
-    //music.play();
-
-    // Start the game loop
-    while (window.isOpen())
+    while (window.isOpen())    // Start the game loop
     {
-        // Process events
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            // Close window: exit
-            if (event.type == sf::Event::Closed) {
+        sf::Event event;    // Process events
+        while (window.pollEvent(event)){
+            if (event.type == sf::Event::Closed)    // Close window: exit
                 window.close();
-            }
-
-            // Escape pressed: exit
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
                 window.close();
-            }
+        }
+        
+        if(clock.getElapsedTime().asMilliseconds() > 90){
+            // update the player ship frame every "x" milliseconds
+            sprite.setTextureRect(sf::IntRect(playerFrame*161,0, 161,110));
+            
+            if(playerFrame == 7)
+                playerFrame = 0;
+            else
+                playerFrame++;
+            
+            clock.restart();
         }
 
-        // Clear screen
         window.clear();
-
-        // Draw the sprite
         window.draw(sprite);
-
-        // Draw the string
-         //window.draw(text);
-
-        // Update the window
         window.display();
     }
 
