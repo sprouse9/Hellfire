@@ -68,6 +68,7 @@ int main(int, char const**)
         float dtAsSeconds = dt.asSeconds();
         int   dtAsMilliseconds = dt.asMilliseconds();
         
+        
         // where is the mouse pointer?
  //       mouseScreenPosition = Mouse::getPosition();
         

@@ -22,6 +22,9 @@ class Player
 private:
     const float START_SPEED = 100;
     
+    // the ship needs to keep track of the timer for rotation animation
+    const int SHIP_ROTATION_TIMER = 90; // in Milliseconds
+    
     Vector2f m_Position;
     Sprite   m_Sprite;
     Texture  m_Texture;
@@ -39,6 +42,8 @@ private:
     float m_Speed;  // Speed in pixels per second
     
     short int playerFrame;
+    
+    int dtSinceLastFrame;   // is it time to change the ship frame for rotaion animation?
     
 public:
     
@@ -64,10 +69,6 @@ public:
     
     // Send a copy of the sprite to main
     Sprite getSprite(int dtMilliseconds);
-    
-    
-    
-    
     
 };
 
