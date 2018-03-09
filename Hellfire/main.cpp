@@ -37,9 +37,9 @@ int main(int, char const**)
     // here is our clock
     Clock clock;
 
-    while (window.isOpen())    // Start the game loop
+    while (window.isOpen())     // Start the game loop
     {
-        sf::Event event;    // Process events
+        sf::Event event;        // Process events
         while (window.pollEvent(event)){
             if (event.type == sf::Event::Closed)    // Close window: exit
                 window.close();
@@ -47,8 +47,7 @@ int main(int, char const**)
                 window.close();
         }
         
-        if(clock.getElapsedTime().asMilliseconds() > 90){
-            // update the player ship frame every "x" milliseconds
+        if(clock.getElapsedTime().asMilliseconds() > 90){       // update the player ship frame every "x" milliseconds
             sprite.setTextureRect(sf::IntRect(playerFrame*161,0, 161,110));
             
             if(playerFrame == 7)
