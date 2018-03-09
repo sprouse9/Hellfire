@@ -58,25 +58,37 @@ Sprite Player::getSprite(int dtMilliseconds){
 // keeping things simple for now, no mouse
 void Player::update(float elapsedTime, Vector2i mousePosition){
     
+    //bool keyPressed = false;
+    
     if(m_UpPressed) {
         m_Position.y -= m_Speed * elapsedTime;
         m_UpPressed = false;
+        //keyPressed = true;
     }
     
     if(m_DownPressed) {
         m_Position.y += m_Speed * elapsedTime;
         m_DownPressed = false;
+        //keyPressed = true;
     }
 
     if(m_LeftPressed) {
         m_Position.x -= m_Speed * elapsedTime;
         m_LeftPressed = false;
+        //keyPressed = true;
     }
     
     if(m_RightPressed) {
         m_Position.x += m_Speed * elapsedTime;
         m_RightPressed = false;
+        //keyPressed = true;
     }
+    
+//    if(keyPressed == false) {
+//        m_Position.x = mousePosition.x;
+//        m_Position.y = mousePosition.y;
+//    }
+    
     
     
     m_Sprite.setPosition(m_Position);

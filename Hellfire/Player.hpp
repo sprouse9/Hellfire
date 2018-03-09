@@ -20,7 +20,7 @@ class Player
 {
     
 private:
-    const float START_SPEED = 100;
+    const float START_SPEED = 200;
     
     // the ship needs to keep track of the timer for rotation animation
     const int SHIP_ROTATION_TIMER = 90; // in Milliseconds
