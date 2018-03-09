@@ -12,6 +12,7 @@
 #endif /* Player_hpp */
 
 #include <SFML/Graphics.hpp>
+#include "ResourcePath.hpp"
 
 using namespace sf;
 
@@ -22,8 +23,8 @@ private:
     const float START_SPEED = 100;
     
     Vector2f m_Position;
-    Sprite m_Sprite;
-    Texture m_Texture;
+    Sprite   m_Sprite;
+    Texture  m_Texture;
     
     Vector2f m_Resolution;
     
@@ -36,6 +37,8 @@ private:
     bool m_Shield;  // is the ship shielded with force field?
     
     float m_Speed;  // Speed in pixels per second
+    
+    short int playerFrame;
     
 public:
     
@@ -60,7 +63,7 @@ public:
     void update(float elapsedTime, Vector2i mousePosition);
     
     // Send a copy of the sprite to main
-    Sprite getSprite();
+    Sprite getSprite(int dtMilliseconds);
     
     
     

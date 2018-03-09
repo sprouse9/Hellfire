@@ -20,46 +20,63 @@
 // Here is a small helper for you! Have a look.
 #include "ResourcePath.hpp"
 
+#include "Player.hpp"
+
 using namespace sf;
 
 int main(int, char const**)
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");   // Create the main window
-
-    sf::Texture texture;    // Load a sprite to display
-    if (!texture.loadFromFile(resourcePath() + "Hellfire-Player-SpriteSheet.png")) {
-        return EXIT_FAILURE;
-    }
-    //sf::Sprite sprite(texture);
-    short int playerFrame = 0;
-    sf::Sprite sprite(texture, sf::IntRect(playerFrame*161,0, 161,110));
-
-    // here is our clock
+    sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML window");   // Create the main window
+    
+    Vector2f mouseWorldPosition;
+    Vector2i mouseScreenPosition;
+    
+    Player player1;
+    
     Clock clock;
 
     while (window.isOpen())     // Start the game loop
     {
-        sf::Event event;        // Process events
+        Event event;            // Process events
+        
         while (window.pollEvent(event)){
-            if (event.type == sf::Event::Closed)    // Close window: exit
+            if (event.type == Event::Closed)    // Close window: exit
                 window.close();
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
-                window.close();
+            if (event.type == Event::KeyPressed){
+                
+                if(event.key.code == Keyboard::Escape)
+                    window.close();
+            }
         }
         
-        if(clock.getElapsedTime().asMilliseconds() > 90){       // update the player ship frame every "x" milliseconds
-            sprite.setTextureRect(sf::IntRect(playerFrame*161,0, 161,110));
-            
-            if(playerFrame == 7)
-                playerFrame = 0;
-            else
-                playerFrame++;
-            
-            clock.restart();
+        // WASD - Handle controls while playing
+        if(Keyboard::isKeyPressed( Keyboard::Up )){
+            player1.moveUp();
         }
-
+        if(Keyboard::isKeyPressed( Keyboard::Down )){
+            player1.moveDown();
+        }
+        if(Keyboard::isKeyPressed( Keyboard::Left )){
+            player1.moveLeft();
+        }
+        if(Keyboard::isKeyPressed( Keyboard::Right )){
+            player1.moveRight();
+        }        
+        
+        // Update the frame
+        Time dt = clock.restart();
+        float dtAsSeconds = dt.asSeconds();
+        int   dtAsMilliseconds = dt.asMilliseconds();
+        
+        // where is the mouse pointer?
+ //       mouseScreenPosition = Mouse::getPosition();
+        
+        // update the player
+        player1.update(dtAsSeconds, Mouse::getPosition());
+        
+        
         window.clear();
-        window.draw(sprite);
+        window.draw(player1.getSprite(dtAsMilliseconds));
         window.display();
     }
 
