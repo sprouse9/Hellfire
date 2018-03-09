@@ -29,24 +29,29 @@ using namespace std;
 
 int main(int, char const**)
 {
-    RenderWindow window(sf::VideoMode(1600, 800), "SFML window");  // Create the main window
+    Vector2f resolution;
+    resolution.x = VideoMode::getDesktopMode().width * .7;
+    resolution.y = VideoMode::getDesktopMode().height * .7;
+    
+    std::ostringstream s1;
+    s1 << resolution.x << " x " << resolution.y;
+    
+    // Create the main window
+    RenderWindow window(sf::VideoMode(resolution.x, resolution.y), s1.str());
     
     // Create a an SFML View for the main action
-    View mainView(FloatRect(0, 0, 1600, 800));
+    View mainView(FloatRect(0, 0, resolution.x, resolution.y));
     
     Vector2f mouseWorldPosition;
     Vector2i mouseScreenPosition;
     
-    Text txtPlayerCoordinates;
-    Font font;
-    font.loadFromFile(resourcePath() + "sansation.ttf");
-    txtPlayerCoordinates.setCharacterSize(30);
-    txtPlayerCoordinates.setFont(font);
+//    Text txtPlayerCoordinates;
+//    Font font;
+//    font.loadFromFile(resourcePath() + "sansation.ttf");
+//    txtPlayerCoordinates.setCharacterSize(30);
+//    txtPlayerCoordinates.setFont(font);
     
-    
-    
-    
-    Player player1;
+    Player player1(resolution);
     
     Clock clock;
 
@@ -62,30 +67,20 @@ int main(int, char const**)
                 if(event.key.code == Keyboard::Escape)
                     window.close();
             }
-            if (event.type == Event::MouseMoved){
-                mouseScreenPosition = Mouse::getPosition(window);
-                mouseWorldPosition = window.mapPixelToCoords(mouseScreenPosition, mainView);
-                
-                cout << "(" << mouseScreenPosition.x << ", "
-                     << mouseScreenPosition.y << ")";
-                
-                cout << "   World = (" << mouseWorldPosition.x << ", "
-                     << mouseWorldPosition.y << ")" << endl;
-                
-            }
+//            if (event.type == Event::MouseMoved){
+//                mouseScreenPosition = Mouse::getPosition(window);
+//                mouseWorldPosition = window.mapPixelToCoords(mouseScreenPosition, mainView);
+//                
+//                cout << "(" << mouseScreenPosition.x << ", "
+//                     << mouseScreenPosition.y << ")";
+//                
+//                cout << "   World = (" << mouseWorldPosition.x << ", "
+//                     << mouseWorldPosition.y << ")" << endl;
+//            }
             
             
         }
-        
-        /****************************************/
-        // Remove or comment out this code block later
-        
-        
-        
-        
-        /****************************************/
-        
-        
+
         // WASD - Handle controls while playing
         if(Keyboard::isKeyPressed( Keyboard::Up )){
             player1.moveUp();
@@ -100,17 +95,9 @@ int main(int, char const**)
             player1.moveRight();
         }
         
-        
-        
-        
         // Update the frame
         Time dt = clock.restart();
         float dtAsSeconds = dt.asSeconds();
-        //int   dtAsMilliseconds = dt.asMilliseconds();
-        
-        
-        // where is the mouse pointer?
- //       mouseScreenPosition = Mouse::getPosition();
         
         // update the player
         player1.update(dtAsSeconds, Mouse::getPosition(window));
@@ -119,9 +106,10 @@ int main(int, char const**)
         window.setView(mainView);
         
         window.draw(player1.getSprite(dt.asMilliseconds()));
-        window.draw(txtPlayerCoordinates);
+        //window.draw(txtPlayerCoordinates);
         
-        // display the player's coordinates just below the ship
+        /**********************************************************************
+        //display the player's coordinates just below the ship
         FloatRect playerPosition = player1.getPostion();
         
         std::ostringstream s;
@@ -130,7 +118,7 @@ int main(int, char const**)
         txtPlayerCoordinates.setString( s.str() );
         txtPlayerCoordinates.setPosition(playerPosition.left+110,
                                          playerPosition.top+70);
-        
+        **********************************************************************/
         window.display();
     }
 

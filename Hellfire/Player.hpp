@@ -20,10 +20,10 @@ class Player
 {
     
 private:
-    const float START_SPEED = 200;
+    const float START_SPEED = 500;
     
     // the ship needs to keep track of the timer for rotation animation
-    const int SHIP_ROTATION_TIMER = 90; // in Milliseconds
+    const int SHIP_ROTATION_TIMER = 50; // in Milliseconds
     
     Vector2f m_Position;
     Sprite   m_Sprite;
@@ -41,13 +41,16 @@ private:
     
     float m_Speed;  // Speed in pixels per second
     
+    float m_ShipWidth;    // used for calculating bounds
+    float m_ShipHeight;
+    
     short int playerFrame;
     
-    int dtSinceLastFrame;   // is it time to change the ship frame for rotaion animation?
+    int dtSinceLastFrame;   // is it time to change the ship frame for rotation animation?
     
 public:
     
-    Player();
+    Player(Vector2f resolution);
     
     // Where is the player
     FloatRect getPostion();

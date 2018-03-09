@@ -7,12 +7,20 @@
 //
  
 #include "Player.hpp"
+#include <iostream>
 
-Player::Player()
+Player::Player(Vector2f resolution)
 {
     m_Speed = START_SPEED;
     //m_Health = START_HEALTH;
     //m_MaxHealth = START_HEALTH;
+    
+    
+    
+    m_Resolution.x = resolution.x;
+    m_Resolution.y = resolution.y;
+    
+    
     
     // Associate a texture with the sprite
     // !!Watch this space!!
@@ -22,6 +30,9 @@ Player::Player()
     
     m_Texture.loadFromFile(resourcePath() + "Hellfire-Player-SpriteSheet.png");
     m_Sprite.setTexture(m_Texture);
+    
+    m_ShipWidth = 1288/8;   // 8 frames in the spritesheet
+    m_ShipHeight = 110;
     
     // Set the origin of the sprite to the centre, for smooth rotation
     //m_Sprite.setOrigin(25, 25);
@@ -97,22 +108,28 @@ void Player::update(float elapsedTime, Vector2i mousePosition){
 
 void Player::moveLeft()
 {
-    m_LeftPressed = true;
+    if(m_Position.x > 0)
+        m_LeftPressed = true;
 }
 
 void Player::moveRight()
 {
-    m_RightPressed = true;
+    if(m_Position.x < (m_Resolution.x - m_ShipWidth))
+        m_RightPressed = true;
+    
+    //std::cout << "width = " << m_ShipWidth << std::endl;
 }
 
 void Player::moveUp()
 {
-    m_UpPressed = true;
+    if(m_Position.y > 0)
+        m_UpPressed = true;
 }
 
 void Player::moveDown()
 {
-    m_DownPressed = true;
+    if(m_Position.y < (m_Resolution.y - m_ShipHeight))
+        m_DownPressed = true;
 }
 
 
