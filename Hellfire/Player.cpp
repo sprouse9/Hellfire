@@ -100,10 +100,7 @@ void Player::update(float elapsedTime, Vector2i mousePosition){
 //        m_Position.y = mousePosition.y;
 //    }
     
-    
-    
     m_Sprite.setPosition(m_Position);
-    
 }
 
 void Player::moveLeft()
@@ -131,21 +128,3 @@ void Player::moveDown()
     if(m_Position.y < (m_Resolution.y - m_ShipHeight))
         m_DownPressed = true;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -20,8 +20,10 @@ class Bullet
 {
     
 private:
-    const float SPEED = 500;
+    const float SPEED = 2;
     
+    const int SHIP_ROTATION_TIMER = 50; // in Milliseconds
+
     Vector2f m_Position;
 //    Sprite   m_Sprite;
 //    Texture  m_Texture;
@@ -36,8 +38,6 @@ private:
     Font sansationFont;
     
     bool bulletInFlight = false;
-    
-    
     
 public:
     
@@ -54,5 +54,7 @@ public:
     Sprite getSprite(int dtMilliseconds);
     
     FloatRect getPostion();
+    
+    Text getBullet(int dtMilliseconds);
     
 };
