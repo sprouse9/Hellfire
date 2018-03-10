@@ -15,7 +15,6 @@ Bullet::Bullet(Vector2f resolution)
     m_Resolution.x = resolution.x;
     m_Resolution.y = resolution.y;
     
-    
     sansationFont.loadFromFile(resourcePath() + "sansation.ttf");
     hyphenBullet.setCharacterSize(30);
     hyphenBullet.setStyle(Text::Bold);
@@ -23,7 +22,6 @@ Bullet::Bullet(Vector2f resolution)
     hyphenBullet.setString( "••" );
 
     dtSinceLastFrame = 0;
-    
 }
 
 bool Bullet::isBulletInFlight() {
@@ -65,7 +63,6 @@ void Bullet::update(int dtMilliseconds) {
         else
             bulletInFlight = false;
     }
-    
 }
 
 Text Bullet::getBullet(int dtMilliseconds){

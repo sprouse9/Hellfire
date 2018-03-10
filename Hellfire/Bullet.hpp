@@ -32,7 +32,7 @@ private:
     
     float m_Speed = 30;          // Speed in pixels per second
     
-    int dtSinceLastFrame;   // is it time to move the bullet forward to the right?
+    int dtSinceLastFrame = 0;   // is it time to move the bullet forward to the right?
     
     Text hyphenBullet;
     Font sansationFont;

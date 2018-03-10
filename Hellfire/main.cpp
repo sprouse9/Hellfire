@@ -87,8 +87,6 @@ int main(int, char const**)
 //                cout << "   World = (" << mouseWorldPosition.x << ", "
 //                     << mouseWorldPosition.y << ")" << endl;
 //            }
-            
-            
         }
 
         // WASD - Handle controls while playing
