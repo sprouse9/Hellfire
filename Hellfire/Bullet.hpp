@@ -20,9 +20,9 @@ class Bullet
 {
     
 private:
-    const float SPEED = 20;
+    //const float SPEED = 30;
     
-    const int SHIP_ROTATION_TIMER = 5; // in Milliseconds
+    const int BULLET_TIMER = 10; // in Milliseconds
 
     Vector2f m_Position;
 //    Sprite   m_Sprite;
@@ -30,7 +30,7 @@ private:
     
     Vector2f m_Resolution;
     
-    float m_Speed;          // Speed in pixels per second
+    float m_Speed = 30;          // Speed in pixels per second
     
     int dtSinceLastFrame;   // is it time to move the bullet forward to the right?
     
@@ -43,15 +43,10 @@ public:
     
     Bullet(Vector2f resolution);
     
-    void moveRight();
-    
     void shoot(FloatRect playerPosition);
     
     // We will call this function once every frame
     void update(int dtMilliseconds);
-    
-    // Send a copy of the sprite to main
-    Sprite getSprite(int dtMilliseconds);
     
     FloatRect getPostion();
     

@@ -10,7 +10,7 @@
 
 Bullet::Bullet(Vector2f resolution)
 {
-    m_Speed = SPEED;
+    //m_Speed = SPEED;
 
     m_Resolution.x = resolution.x;
     m_Resolution.y = resolution.y;
@@ -18,9 +18,9 @@ Bullet::Bullet(Vector2f resolution)
     
     sansationFont.loadFromFile(resourcePath() + "sansation.ttf");
     hyphenBullet.setCharacterSize(30);
-    hyphenBullet.setStyle(sf::Text::Bold);
+    hyphenBullet.setStyle(Text::Bold);
     hyphenBullet.setFont(sansationFont);
-    hyphenBullet.setString( "===>" );
+    hyphenBullet.setString( "••" );
 
     dtSinceLastFrame = 0;
     
@@ -30,7 +30,6 @@ bool Bullet::isBulletInFlight() {
     
     return bulletInFlight;
 }
-
 
 FloatRect Bullet::getPostion(){
     return hyphenBullet.getGlobalBounds();
@@ -45,7 +44,6 @@ void Bullet::shoot(FloatRect playerPosition) {
     m_Position.y = playerPosition.top + 40; // 40 is approximating the ship's nose
 }
 
-
 void Bullet::update(int dtMilliseconds) {
     
     // is there a bullet in flight?
@@ -57,26 +55,20 @@ void Bullet::update(int dtMilliseconds) {
             // change the timing to be based on the dt
             dtSinceLastFrame += dtMilliseconds;
             
-            if(dtSinceLastFrame > SHIP_ROTATION_TIMER){
+            if(dtSinceLastFrame > BULLET_TIMER){
             
                 m_Position.x += m_Speed;
                 hyphenBullet.setPosition(m_Position);
                 dtSinceLastFrame = 0;
             }
-            
         }
         else
             bulletInFlight = false;
     }
     
-    //return hyphenBullet;
-    
 }
 
 Text Bullet::getBullet(int dtMilliseconds){
-    
-    
+
     return hyphenBullet;
 }
-
-
