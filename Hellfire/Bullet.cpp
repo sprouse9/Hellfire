@@ -20,7 +20,7 @@ Bullet::Bullet(Vector2f resolution)
     hyphenBullet.setCharacterSize(30);
     hyphenBullet.setStyle(sf::Text::Bold);
     hyphenBullet.setFont(sansationFont);
-    hyphenBullet.setString( "==>" );
+    hyphenBullet.setString( "===>" );
 
     dtSinceLastFrame = 0;
     
@@ -46,15 +46,24 @@ void Bullet::shoot(FloatRect playerPosition) {
 }
 
 
-void Bullet::update(float elapsedTime) {
+void Bullet::update(int dtMilliseconds) {
     
     // is there a bullet in flight?
     if(bulletInFlight == true){
 
         //have we reached the end of the edge of the window?
         if(m_Position.x < (m_Resolution.x)) {
-            m_Position.x += m_Speed * elapsedTime;
-            hyphenBullet.setPosition(m_Position);
+            
+            // change the timing to be based on the dt
+            dtSinceLastFrame += dtMilliseconds;
+            
+            if(dtSinceLastFrame > SHIP_ROTATION_TIMER){
+            
+                m_Position.x += m_Speed;
+                hyphenBullet.setPosition(m_Position);
+                dtSinceLastFrame = 0;
+            }
+            
         }
         else
             bulletInFlight = false;
