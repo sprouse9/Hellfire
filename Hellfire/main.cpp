@@ -106,7 +106,8 @@ int main(int, char const**)
         }
         
         if(Keyboard::isKeyPressed( Keyboard::A )){
-            bullet.shoot(player1.getPostion());
+            if(!bullet.isBulletInFlight())
+                bullet.shoot(player1.getPostion());
         }
         
         
@@ -124,7 +125,9 @@ int main(int, char const**)
         window.setView(mainView);
         
         window.draw(player1.getSprite(dt.asMilliseconds()));
-        window.draw( bullet.getBullet(dt.asMilliseconds()));
+        
+        if(bullet.isBulletInFlight())
+            window.draw( bullet.getBullet(dt.asMilliseconds()));
         
         
         

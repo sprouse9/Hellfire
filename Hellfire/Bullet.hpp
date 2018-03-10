@@ -20,7 +20,7 @@ class Bullet
 {
     
 private:
-    const float SPEED = 2;
+    const float SPEED = 6;
     
     const int SHIP_ROTATION_TIMER = 50; // in Milliseconds
 
@@ -56,5 +56,7 @@ public:
     FloatRect getPostion();
     
     Text getBullet(int dtMilliseconds);
+    
+    bool isBulletInFlight();
     
 };
