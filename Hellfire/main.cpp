@@ -23,6 +23,7 @@
 #include "ResourcePath.hpp"
 
 #include "Player.hpp"
+#include "Bullet.hpp"
 
 using namespace sf;
 using namespace std;
@@ -51,7 +52,16 @@ int main(int, char const**)
 //    txtPlayerCoordinates.setCharacterSize(30);
 //    txtPlayerCoordinates.setFont(font);
     
+    Text hyphenBullet;
+    Font sansationFont;
+    sansationFont.loadFromFile(resourcePath() + "sansation.ttf");
+    hyphenBullet.setCharacterSize(40);
+    hyphenBullet.setFont(sansationFont);
+    hyphenBullet.setString( "-" );
+    
+    
     Player player1(resolution);
+    Bullet bullet(resolution);
     
     Clock clock;
 
@@ -95,6 +105,11 @@ int main(int, char const**)
             player1.moveRight();
         }
         
+        if(Keyboard::isKeyPressed( Keyboard::A )){
+            bullet.shoot(player1.getPostion());
+        }
+        
+        
         // Update the frame
         Time dt = clock.restart();
         float dtAsSeconds = dt.asSeconds();
@@ -102,10 +117,17 @@ int main(int, char const**)
         // update the player
         player1.update(dtAsSeconds, Mouse::getPosition(window));
         
+        // update the bullet (if any)
+        bullet.update(dt.asMilliseconds());
+        
         window.clear();
         window.setView(mainView);
         
         window.draw(player1.getSprite(dt.asMilliseconds()));
+        window.draw( bullet.getBullet(dt.asMilliseconds()));
+        
+        
+        
         //window.draw(txtPlayerCoordinates);
         
         /**********************************************************************
