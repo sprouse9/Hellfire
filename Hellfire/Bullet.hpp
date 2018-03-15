@@ -22,7 +22,7 @@ class Bullet
 private:
     //const float SPEED = 30;
     
-    const int BULLET_TIMER = 10; // in Milliseconds
+    const int BULLET_TIMER = 2; // in Milliseconds
 
     Vector2f m_Position;
 //    Sprite   m_Sprite;
@@ -30,7 +30,7 @@ private:
     
     Vector2f m_Resolution;
     
-    float m_Speed = 30;          // Speed in pixels per second
+    float m_Speed = 10;          // Speed in pixels per second
     
     int dtSinceLastFrame = 0;   // is it time to move the bullet forward to the right?
     
@@ -53,5 +53,7 @@ public:
     Text getBullet(int dtMilliseconds);
     
     bool isBulletInFlight();
+    
+    void draw(RenderWindow &targetWindow);
     
 };

@@ -34,12 +34,15 @@ FloatRect Bullet::getPostion(){
 }
 
 void Bullet::shoot(FloatRect playerPosition) {
-    // a new bullet was shot
-    bulletInFlight = true;
     
-    // set the initial coordinates for the bullet based on the player position
-    m_Position.x = playerPosition.left + 130;
-    m_Position.y = playerPosition.top + 40; // 40 is approximating the ship's nose
+    if( bulletInFlight == false) {
+        // a new bullet was shot
+        bulletInFlight = true;
+        
+        // set the initial coordinates for the bullet based on the player position
+        m_Position.x = playerPosition.left + 130;
+        m_Position.y = playerPosition.top + 40; // 40 is approximating the ship's nose
+    }
 }
 
 void Bullet::update(int dtMilliseconds) {
@@ -68,4 +71,13 @@ void Bullet::update(int dtMilliseconds) {
 Text Bullet::getBullet(int dtMilliseconds){
 
     return hyphenBullet;
+}
+
+
+void Bullet::draw(RenderWindow &targetWindow) {
+    
+    if( bulletInFlight ) {
+        targetWindow.draw(hyphenBullet);
+    }
+    
 }

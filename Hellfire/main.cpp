@@ -105,8 +105,15 @@ int main(int, char const**)
         }
         
         if(Keyboard::isKeyPressed( Keyboard::A )){
-            if(!bullet.isBulletInFlight())
-                bullet.shoot(player1.getPostion());
+            
+            // the shoot() method should decide whether to add a bullet to the scene
+            // and how many
+            bullet.shoot(player1.getPostion());
+            
+//          The old way
+//            if(!bullet.isBulletInFlight())
+//                bullet.shoot(player1.getPostion());
+        
         }
         
         
@@ -125,8 +132,12 @@ int main(int, char const**)
         
         window.draw(player1.getSprite(dt.asMilliseconds()));
         
-        if(bullet.isBulletInFlight())
-            window.draw( bullet.getBullet(dt.asMilliseconds()));
+        bullet.draw(window);
+        
+        
+//  The old way
+//        if(bullet.isBulletInFlight())
+//            window.draw( bullet.getBullet(dt.asMilliseconds()));
         
         
         
