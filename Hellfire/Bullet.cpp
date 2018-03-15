@@ -19,7 +19,7 @@ Bullet::Bullet(Vector2f resolution)
     hyphenBullet.setCharacterSize(30);
     hyphenBullet.setStyle(Text::Bold);
     hyphenBullet.setFont(sansationFont);
-    hyphenBullet.setString( "••" );
+    hyphenBullet.setString( "==" );
 
     dtSinceLastFrame = 0;
 }
@@ -38,7 +38,7 @@ void Bullet::shoot(FloatRect playerPosition) {
     bulletInFlight = true;
     
     // set the initial coordinates for the bullet based on the player position
-    m_Position.x = playerPosition.left + playerPosition.width;
+    m_Position.x = playerPosition.left + 130;
     m_Position.y = playerPosition.top + 40; // 40 is approximating the ship's nose
 }
 

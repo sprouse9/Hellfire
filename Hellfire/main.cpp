@@ -39,6 +39,7 @@ int main(int, char const**)
     
     // Create the main window
     RenderWindow window(sf::VideoMode(resolution.x, resolution.y), s1.str());
+    window.setMouseCursorVisible(false);
     
     // Create a an SFML View for the main action
     View mainView(FloatRect(0, 0, resolution.x, resolution.y));
