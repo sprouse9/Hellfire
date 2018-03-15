@@ -53,12 +53,12 @@ int main(int, char const**)
 //    txtPlayerCoordinates.setCharacterSize(30);
 //    txtPlayerCoordinates.setFont(font);
     
-    Text hyphenBullet;
-    Font sansationFont;
-    sansationFont.loadFromFile(resourcePath() + "sansation.ttf");
-    hyphenBullet.setCharacterSize(40);
-    hyphenBullet.setFont(sansationFont);
-    hyphenBullet.setString( "-" );
+//    Text hyphenBullet;
+//    Font sansationFont;
+//    sansationFont.loadFromFile(resourcePath() + "sansation.ttf");
+//    hyphenBullet.setCharacterSize(40);
+//    hyphenBullet.setFont(sansationFont);
+//    hyphenBullet.setString( "-" );
     
     
     Player player1(resolution);
@@ -91,28 +91,24 @@ int main(int, char const**)
         }
 
         // WASD - Handle controls while playing
-        if(Keyboard::isKeyPressed( Keyboard::Up )){
-            player1.moveUp();
-        }
-        if(Keyboard::isKeyPressed( Keyboard::Down )){
-            player1.moveDown();
-        }
-        if(Keyboard::isKeyPressed( Keyboard::Left )){
-            player1.moveLeft();
-        }
-        if(Keyboard::isKeyPressed( Keyboard::Right )){
-            player1.moveRight();
-        }
+//        if(Keyboard::isKeyPressed( Keyboard::Up )){
+//            player1.moveUp();
+//        }
+//        if(Keyboard::isKeyPressed( Keyboard::Down )){
+//            player1.moveDown();
+//        }
+//        if(Keyboard::isKeyPressed( Keyboard::Left )){
+//            player1.moveLeft();
+//        }
+//        if(Keyboard::isKeyPressed( Keyboard::Right )){
+//            player1.moveRight();
+//        }
         
         if(Keyboard::isKeyPressed( Keyboard::A )){
             
-            // the shoot() method should decide whether to add a bullet to the scene
-            // and how many
+            // the shoot() method should decide whether to add a bullet to the scene and how many
             bullet.shoot(player1.getPostion());
             
-//          The old way
-//            if(!bullet.isBulletInFlight())
-//                bullet.shoot(player1.getPostion());
         
         }
         

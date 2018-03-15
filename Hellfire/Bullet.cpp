@@ -24,11 +24,6 @@ Bullet::Bullet(Vector2f resolution)
     dtSinceLastFrame = 0;
 }
 
-bool Bullet::isBulletInFlight() {
-    
-    return bulletInFlight;
-}
-
 FloatRect Bullet::getPostion(){
     return hyphenBullet.getGlobalBounds();
 }
@@ -42,6 +37,10 @@ void Bullet::shoot(FloatRect playerPosition) {
         // set the initial coordinates for the bullet based on the player position
         m_Position.x = playerPosition.left + 130;
         m_Position.y = playerPosition.top + 40; // 40 is approximating the ship's nose
+        
+        
+        
+        
     }
 }
 
@@ -68,16 +67,9 @@ void Bullet::update(int dtMilliseconds) {
     }
 }
 
-Text Bullet::getBullet(int dtMilliseconds){
-
-    return hyphenBullet;
-}
-
-
 void Bullet::draw(RenderWindow &targetWindow) {
     
     if( bulletInFlight ) {
         targetWindow.draw(hyphenBullet);
     }
-    
 }

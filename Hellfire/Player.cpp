@@ -16,10 +16,8 @@ Player::Player(Vector2f resolution)
     //m_MaxHealth = START_HEALTH;
     
     
-    
     m_Resolution.x = resolution.x;
     m_Resolution.y = resolution.y;
-    
     
     
     // Associate a texture with the sprite
@@ -71,29 +69,29 @@ void Player::update(float elapsedTime, Vector2i mousePosition){
     
     bool keyPressed = false;
     
-    if(m_UpPressed) {
-        m_Position.y -= m_Speed * elapsedTime;
-        m_UpPressed = false;
-        //keyPressed = true;
-    }
-    
-    if(m_DownPressed) {
-        m_Position.y += m_Speed * elapsedTime;
-        m_DownPressed = false;
-        //keyPressed = true;
-    }
-
-    if(m_LeftPressed) {
-        m_Position.x -= m_Speed * elapsedTime;
-        m_LeftPressed = false;
-        //keyPressed = true;
-    }
-    
-    if(m_RightPressed) {
-        m_Position.x += m_Speed * elapsedTime;
-        m_RightPressed = false;
-        //keyPressed = true;
-    }
+//    if(m_UpPressed) {
+//        m_Position.y -= m_Speed * elapsedTime;
+//        m_UpPressed = false;
+//        //keyPressed = true;
+//    }
+//    
+//    if(m_DownPressed) {
+//        m_Position.y += m_Speed * elapsedTime;
+//        m_DownPressed = false;
+//        //keyPressed = true;
+//    }
+//
+//    if(m_LeftPressed) {
+//        m_Position.x -= m_Speed * elapsedTime;
+//        m_LeftPressed = false;
+//        //keyPressed = true;
+//    }
+//    
+//    if(m_RightPressed) {
+//        m_Position.x += m_Speed * elapsedTime;
+//        m_RightPressed = false;
+//        //keyPressed = true;
+//    }
     
     if(keyPressed == false) {
         m_Position.x = mousePosition.x;

@@ -18,7 +18,7 @@ using namespace sf;
 
 class Bullet
 {
-    
+
 private:
     //const float SPEED = 30;
     
@@ -49,10 +49,6 @@ public:
     void update(int dtMilliseconds);
     
     FloatRect getPostion();
-    
-    Text getBullet(int dtMilliseconds);
-    
-    bool isBulletInFlight();
     
     void draw(RenderWindow &targetWindow);
     
