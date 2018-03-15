@@ -1,14 +1,14 @@
 //
-//  Bullet.cpp
+//  BulletManager.cpp
 //  Hellfire
 //
 //  Created by Randy on 3/9/18.
 //  Copyright © 2018 randy sprouse. All rights reserved.
 //
 
-#include "Bullet.hpp"
+#include "BulletManager.hpp"
 
-Bullet::Bullet(Vector2f resolution)
+BulletManager::BulletManager(Vector2f resolution)
 {
     //m_Speed = SPEED;
 
@@ -24,11 +24,11 @@ Bullet::Bullet(Vector2f resolution)
     dtSinceLastFrame = 0;
 }
 
-FloatRect Bullet::getPostion(){
+FloatRect BulletManager::getPostion(){
     return hyphenBullet.getGlobalBounds();
 }
 
-void Bullet::shoot(FloatRect playerPosition) {
+void BulletManager::shoot(FloatRect playerPosition) {
     
     if( bulletInFlight == false) {
         // a new bullet was shot
@@ -44,7 +44,7 @@ void Bullet::shoot(FloatRect playerPosition) {
     }
 }
 
-void Bullet::update(int dtMilliseconds) {
+void BulletManager::update(int dtMilliseconds) {
     
     // is there a bullet in flight?
     if(bulletInFlight == true){
@@ -67,7 +67,7 @@ void Bullet::update(int dtMilliseconds) {
     }
 }
 
-void Bullet::draw(RenderWindow &targetWindow) {
+void BulletManager::draw(RenderWindow &targetWindow) {
     
     if( bulletInFlight ) {
         targetWindow.draw(hyphenBullet);

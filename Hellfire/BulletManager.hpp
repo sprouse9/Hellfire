@@ -6,20 +6,23 @@
 //  Copyright © 2018 randy sprouse. All rights reserved.
 //
 
-#ifndef Bullet_hpp
-#define Bullet_hpp
+#ifndef BulletManager_hpp
+#define BulletManager_hpp
 
-#endif /* Bullet_hpp */
+#endif /* BulletManager_hpp */
 
 #include <SFML/Graphics.hpp>
 #include "ResourcePath.hpp"
 
 using namespace sf;
 
-class Bullet
+class BulletManager
 {
 
 private:
+    
+    //bullets[4];                 // Array of bullets
+    
     //const float SPEED = 30;
     
     const int BULLET_TIMER = 2; // in Milliseconds
@@ -30,7 +33,7 @@ private:
     
     Vector2f m_Resolution;
     
-    float m_Speed = 10;          // Speed in pixels per second
+    float m_Speed = 10;         // Speed in pixels per frame
     
     int dtSinceLastFrame = 0;   // is it time to move the bullet forward to the right?
     
@@ -41,7 +44,7 @@ private:
     
 public:
     
-    Bullet(Vector2f resolution);
+    BulletManager(Vector2f resolution);
     
     void shoot(FloatRect playerPosition);
     

@@ -23,7 +23,7 @@
 #include "ResourcePath.hpp"
 
 #include "Player.hpp"
-#include "Bullet.hpp"
+#include "BulletManager.hpp"
 
 using namespace sf;
 using namespace std;
@@ -53,16 +53,9 @@ int main(int, char const**)
 //    txtPlayerCoordinates.setCharacterSize(30);
 //    txtPlayerCoordinates.setFont(font);
     
-//    Text hyphenBullet;
-//    Font sansationFont;
-//    sansationFont.loadFromFile(resourcePath() + "sansation.ttf");
-//    hyphenBullet.setCharacterSize(40);
-//    hyphenBullet.setFont(sansationFont);
-//    hyphenBullet.setString( "-" );
-    
     
     Player player1(resolution);
-    Bullet bullet(resolution);
+    BulletManager bulletManager(resolution);
     
     Clock clock;
 
@@ -107,7 +100,7 @@ int main(int, char const**)
         if(Keyboard::isKeyPressed( Keyboard::A )){
             
             // the shoot() method should decide whether to add a bullet to the scene and how many
-            bullet.shoot(player1.getPostion());
+            bulletManager.shoot(player1.getPostion());
             
         
         }
@@ -121,14 +114,14 @@ int main(int, char const**)
         player1.update(dtAsSeconds, Mouse::getPosition(window));
         
         // update the bullet (if any)
-        bullet.update(dt.asMilliseconds());
+        bulletManager.update(dt.asMilliseconds());
         
         window.clear();
         window.setView(mainView);
         
         window.draw(player1.getSprite(dt.asMilliseconds()));
         
-        bullet.draw(window);
+        bulletManager.draw(window);
         
         
 //  The old way

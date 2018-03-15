@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		25EF2BEE2052410100308F2C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EF2BEC2052410100308F2C /* Player.cpp */; };
 		25EF2BF220530D4100308F2C /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25EF2BF120530D4100308F2C /* sansation.ttf */; };
-		25EF2BF5205355F600308F2C /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EF2BF3205355F600308F2C /* Bullet.cpp */; };
+		25EF2BF5205355F600308F2C /* BulletManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EF2BF3205355F600308F2C /* BulletManager.cpp */; };
 		8CD0A4AB2051CE8E00F2ADE6 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0A4AA2051CE8E00F2ADE6 /* ResourcePath.mm */; };
 		8CD0A4AE2051CE8E00F2ADE6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0A4AD2051CE8E00F2ADE6 /* main.cpp */; };
 		8CD0A4B32051CE8E00F2ADE6 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 8CD0A4B22051CE8E00F2ADE6 /* nice_music.ogg */; };
@@ -21,8 +21,8 @@
 		25EF2BEC2052410100308F2C /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		25EF2BED2052410100308F2C /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		25EF2BF120530D4100308F2C /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		25EF2BF3205355F600308F2C /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
-		25EF2BF4205355F600308F2C /* Bullet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
+		25EF2BF3205355F600308F2C /* BulletManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BulletManager.cpp; sourceTree = "<group>"; };
+		25EF2BF4205355F600308F2C /* BulletManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BulletManager.hpp; sourceTree = "<group>"; };
 		8CD0A4A52051CE8D00F2ADE6 /* Hellfire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hellfire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD0A4A92051CE8E00F2ADE6 /* Hellfire-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hellfire-Info.plist"; sourceTree = "<group>"; };
 		8CD0A4AA2051CE8E00F2ADE6 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -70,8 +70,8 @@
 				8CD0A4A82051CE8E00F2ADE6 /* Supporting Files */,
 				25EF2BEC2052410100308F2C /* Player.cpp */,
 				25EF2BED2052410100308F2C /* Player.hpp */,
-				25EF2BF3205355F600308F2C /* Bullet.cpp */,
-				25EF2BF4205355F600308F2C /* Bullet.hpp */,
+				25EF2BF3205355F600308F2C /* BulletManager.cpp */,
+				25EF2BF4205355F600308F2C /* BulletManager.hpp */,
 			);
 			path = Hellfire;
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 				8CD0A4AE2051CE8E00F2ADE6 /* main.cpp in Sources */,
 				8CD0A4AB2051CE8E00F2ADE6 /* ResourcePath.mm in Sources */,
 				25EF2BEE2052410100308F2C /* Player.cpp in Sources */,
-				25EF2BF5205355F600308F2C /* Bullet.cpp in Sources */,
+				25EF2BF5205355F600308F2C /* BulletManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
