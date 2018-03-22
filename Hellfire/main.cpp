@@ -14,7 +14,7 @@
 // function `resourcePath()` from ResourcePath.hpp
 //
 
-#include <SFML/Audio.hpp>
+//#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <sstream>
@@ -41,7 +41,7 @@ int main(int, char const**)
     RenderWindow window(sf::VideoMode(resolution.x, resolution.y), s1.str());
     window.setMouseCursorVisible(false);
     
-    // Create a an SFML View for the main action
+    // Create a SFML View for the main action
     View mainView(FloatRect(0, 0, resolution.x, resolution.y));
     
     Vector2f mouseWorldPosition;
@@ -58,7 +58,9 @@ int main(int, char const**)
     BulletManager bulletManager(resolution);
     
     Clock clock;
-
+    Time dt;
+    
+    
     while (window.isOpen())     // Start the game loop
     {
         Event event;            // Process events
@@ -67,47 +69,24 @@ int main(int, char const**)
             if (event.type == Event::Closed)    // Close window: exit
                 window.close();
             if (event.type == Event::KeyPressed){
-                
                 if(event.key.code == Keyboard::Escape)
                     window.close();
             }
-//            if (event.type == Event::MouseMoved){
-//                mouseScreenPosition = Mouse::getPosition(window);
-//                mouseWorldPosition = window.mapPixelToCoords(mouseScreenPosition, mainView);
-//                
-//                cout << "(" << mouseScreenPosition.x << ", "
-//                     << mouseScreenPosition.y << ")";
-//                
-//                cout << "   World = (" << mouseWorldPosition.x << ", "
-//                     << mouseWorldPosition.y << ")" << endl;
-//            }
         }
 
-        // WASD - Handle controls while playing
-//        if(Keyboard::isKeyPressed( Keyboard::Up )){
-//            player1.moveUp();
-//        }
-//        if(Keyboard::isKeyPressed( Keyboard::Down )){
-//            player1.moveDown();
-//        }
-//        if(Keyboard::isKeyPressed( Keyboard::Left )){
-//            player1.moveLeft();
-//        }
-//        if(Keyboard::isKeyPressed( Keyboard::Right )){
-//            player1.moveRight();
-//        }
+        dt = clock.restart();
         
         if(Keyboard::isKeyPressed( Keyboard::A )){
             
             // the shoot() method should decide whether to add a bullet to the scene and how many
-            bulletManager.shoot(player1.getPostion());
+            bulletManager.shoot(player1.getPostion(), dt.asMilliseconds());
             
         
         }
         
         
         // Update the frame
-        Time dt = clock.restart();
+//        Time dt = clock.restart();
         float dtAsSeconds = dt.asSeconds();
         
         // update the player
@@ -123,26 +102,10 @@ int main(int, char const**)
         
         bulletManager.draw(window);
         
-        
-//  The old way
-//        if(bullet.isBulletInFlight())
-//            window.draw( bullet.getBullet(dt.asMilliseconds()));
+
         
         
         
-        //window.draw(txtPlayerCoordinates);
-        
-        /**********************************************************************
-        //display the player's coordinates just below the ship
-        FloatRect playerPosition = player1.getPostion();
-        
-        std::ostringstream s;
-        s << "(" << playerPosition.left << ", " << playerPosition.top << ")";
-        
-        txtPlayerCoordinates.setString( s.str() );
-        txtPlayerCoordinates.setPosition(playerPosition.left+110,
-                                         playerPosition.top+70);
-        **********************************************************************/
         window.display();
     }
 

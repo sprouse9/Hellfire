@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25B2934C205A365C00114B4A /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2934A205A365C00114B4A /* Bullet.cpp */; };
 		25EF2BEE2052410100308F2C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EF2BEC2052410100308F2C /* Player.cpp */; };
 		25EF2BF220530D4100308F2C /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25EF2BF120530D4100308F2C /* sansation.ttf */; };
 		25EF2BF5205355F600308F2C /* BulletManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EF2BF3205355F600308F2C /* BulletManager.cpp */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25B2934A205A365C00114B4A /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
+		25B2934B205A365C00114B4A /* Bullet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
 		25EF2BEC2052410100308F2C /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		25EF2BED2052410100308F2C /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		25EF2BF120530D4100308F2C /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 				25EF2BED2052410100308F2C /* Player.hpp */,
 				25EF2BF3205355F600308F2C /* BulletManager.cpp */,
 				25EF2BF4205355F600308F2C /* BulletManager.hpp */,
+				25B2934A205A365C00114B4A /* Bullet.cpp */,
+				25B2934B205A365C00114B4A /* Bullet.hpp */,
 			);
 			path = Hellfire;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B2934C205A365C00114B4A /* Bullet.cpp in Sources */,
 				8CD0A4AE2051CE8E00F2ADE6 /* main.cpp in Sources */,
 				8CD0A4AB2051CE8E00F2ADE6 /* ResourcePath.mm in Sources */,
 				25EF2BEE2052410100308F2C /* Player.cpp in Sources */,
